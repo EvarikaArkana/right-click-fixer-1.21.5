@@ -52,12 +52,8 @@ public abstract class ReClickifyMixin {
                                 InteractionResult.Success success = (InteractionResult.Success) interactionResult;
                                 if (success.swingSource() == InteractionResult.SwingSource.CLIENT) {
                                     thisMinecraft.player.swing(interactionHand);
-                                    thisMinecraft.rightClickDelay = 10;
-                                    return;
                                 }
-                                if (interactionHand == OFF_HAND) {
                                     return;
-                                }
                             }
                             break;
                             case BLOCK:
