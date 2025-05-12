@@ -53,7 +53,7 @@ public abstract class ReClickifyMixin {
                                 if (success.swingSource() == InteractionResult.SwingSource.CLIENT) {
                                     thisMinecraft.player.swing(interactionHand);
                                 }
-                                    return;
+                                return;
                             }
                             break;
                             case BLOCK:
