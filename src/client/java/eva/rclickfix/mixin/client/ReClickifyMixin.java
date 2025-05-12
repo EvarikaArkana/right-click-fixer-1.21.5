@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static com.mojang.text2speech.Narrator.LOGGER;
@@ -19,8 +20,9 @@ import static net.minecraft.world.InteractionHand.OFF_HAND;
 @Mixin(Minecraft.class)
 @Debug(export = true)
 public abstract class ReClickifyMixin {
-    @Inject(at = @At("HEAD"), method = "startUseItem")
-    private void itemUseReplace(CallbackInfo ci) {
+    @Redirect(method = "handleKeybinds",
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;startUseItem()V"))
+    private void itemUseReplace(Minecraft instance) {
         Minecraft thisMinecraft = (Minecraft) (Object) this;
         if (!thisMinecraft.gameMode.isDestroying()) {
             thisMinecraft.rightClickDelay = 4;
@@ -52,8 +54,9 @@ public abstract class ReClickifyMixin {
                                 InteractionResult.Success success = (InteractionResult.Success) interactionResult;
                                 if (success.swingSource() == InteractionResult.SwingSource.CLIENT) {
                                     thisMinecraft.player.swing(interactionHand);
+                                    return;
                                 }
-                                return;
+                                if (interactionHand == OFF_HAND) {return;}
                             }
                             break;
                             case BLOCK:
@@ -95,5 +98,4 @@ public abstract class ReClickifyMixin {
             }
         }
     }
-
 }
