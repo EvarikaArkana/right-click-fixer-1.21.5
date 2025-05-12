@@ -29,79 +29,75 @@ public abstract class ReClickifyMixin {
                     LOGGER.warn("Null returned as 'hitResult', this shouldn't happen!");
                 }
 
-        for (InteractionHand interactionHand : InteractionHand.values()) {
-            ItemStack itemStack = thisMinecraft.player.getItemInHand(interactionHand);
-            if (!itemStack.isItemEnabled(thisMinecraft.level.enabledFeatures())) {
-                return;
-            }
+                for (InteractionHand interactionHand : InteractionHand.values()) {
+                    ItemStack itemStack = thisMinecraft.player.getItemInHand(interactionHand);
+                    if (!itemStack.isItemEnabled(thisMinecraft.level.enabledFeatures())) {
+                        return;
+                    }
 
-            if (thisMinecraft.hitResult != null) {
-                switch (thisMinecraft.hitResult.getType()) {
-                    case ENTITY:
-                        EntityHitResult entityHitResult = (EntityHitResult) thisMinecraft.hitResult;
-                        Entity entity = entityHitResult.getEntity();
-                        if (!thisMinecraft.level.getWorldBorder().isWithinBounds(entity.blockPosition())) {
-                            return;
-                        }
-
-                        InteractionResult interactionResult = thisMinecraft.gameMode.interactAt(thisMinecraft.player, entity, entityHitResult, interactionHand);
-                        if (!interactionResult.consumesAction()) {
-                            interactionResult = thisMinecraft.gameMode.interact(thisMinecraft.player, entity, interactionHand);
-                        }
-
-                        if (interactionResult instanceof InteractionResult.Success) {
-                            InteractionResult.Success success = (InteractionResult.Success) interactionResult;
-                            if (success.swingSource() == InteractionResult.SwingSource.CLIENT) {
-                                thisMinecraft.player.swing(interactionHand);
-                                thisMinecraft.rightClickDelay = 10;
+                    if (thisMinecraft.hitResult != null) {
+                        switch (thisMinecraft.hitResult.getType()) {
+                            case ENTITY:
+                            EntityHitResult entityHitResult = (EntityHitResult) thisMinecraft.hitResult;
+                            Entity entity = entityHitResult.getEntity();
+                            if (!thisMinecraft.level.getWorldBorder().isWithinBounds(entity.blockPosition())) {
                                 return;
                             }
-                            if (interactionHand == OFF_HAND) {
-                                return;
+                            InteractionResult interactionResult = thisMinecraft.gameMode.interactAt(thisMinecraft.player, entity, entityHitResult, interactionHand);
+                            if (!interactionResult.consumesAction()) {
+                                interactionResult = thisMinecraft.gameMode.interact(thisMinecraft.player, entity, interactionHand);
                             }
-                        }
-                        break;
-                    case BLOCK:
-                        BlockHitResult blockHitResult = (BlockHitResult) thisMinecraft.hitResult;
-                        int i = itemStack.getCount();
-                        InteractionResult interactionResult2 = thisMinecraft.gameMode.useItemOn(thisMinecraft.player, interactionHand, blockHitResult);
-                        if (interactionResult2 instanceof InteractionResult.Success) {
-                            InteractionResult.Success success2 = (InteractionResult.Success) interactionResult2;
-                            if (success2.swingSource() == InteractionResult.SwingSource.CLIENT) {
-                                thisMinecraft.player.swing(interactionHand);
-                                if (!itemStack.isEmpty() && (itemStack.getCount() != i || thisMinecraft.player.hasInfiniteMaterials())) {
-                                    thisMinecraft.gameRenderer.itemInHandRenderer.itemUsed(interactionHand);
+
+                            if (interactionResult instanceof InteractionResult.Success) {
+                                InteractionResult.Success success = (InteractionResult.Success) interactionResult;
+                                if (success.swingSource() == InteractionResult.SwingSource.CLIENT) {
+                                    thisMinecraft.player.swing(interactionHand);
+                                    thisMinecraft.rightClickDelay = 10;
+                                    return;
+                                }
+                                if (interactionHand == OFF_HAND) {
                                     return;
                                 }
                             }
-
-                            if (interactionHand == OFF_HAND) {
+                            break;
+                            case BLOCK:
+                            BlockHitResult blockHitResult = (BlockHitResult) thisMinecraft.hitResult;
+                            int i = itemStack.getCount();
+                            InteractionResult interactionResult2 = thisMinecraft.gameMode.useItemOn(thisMinecraft.player, interactionHand, blockHitResult);
+                            if (interactionResult2 instanceof InteractionResult.Success) {
+                                InteractionResult.Success success2 = (InteractionResult.Success) interactionResult2;
+                                if (success2.swingSource() == InteractionResult.SwingSource.CLIENT) {
+                                    thisMinecraft.player.swing(interactionHand);
+                                    if (!itemStack.isEmpty() && (itemStack.getCount() != i || thisMinecraft.player.hasInfiniteMaterials())) {
+                                        thisMinecraft.gameRenderer.itemInHandRenderer.itemUsed(interactionHand);
+                                        return;
+                                    }
+                                }
+                                if (interactionHand == OFF_HAND) {
+                                    return;
+                                }
+                            }
+                            if (interactionHand == OFF_HAND && interactionResult2 instanceof InteractionResult.Fail) {
                                 return;
                             }
                         }
-
-                                /*if (interactionResult2 instanceof InteractionResult.Fail) {
-                                    return;
-                                }*/
-                }
-            }
-
-            if (!itemStack.isEmpty()) {
-                InteractionResult interactionResult3 = thisMinecraft.gameMode.useItem(thisMinecraft.player, interactionHand);
-                if (interactionResult3 instanceof InteractionResult.Success) {
-                    InteractionResult.Success success3 = (InteractionResult.Success) interactionResult3;
-                    if (success3.swingSource() == InteractionResult.SwingSource.CLIENT) {
-                        thisMinecraft.player.swing(interactionHand);
                     }
 
-                    thisMinecraft.gameRenderer.itemInHandRenderer.itemUsed(interactionHand);
-                    return;
+                    if (!itemStack.isEmpty()) {
+                        InteractionResult interactionResult3 = thisMinecraft.gameMode.useItem(thisMinecraft.player, interactionHand);
+                        if (interactionResult3 instanceof InteractionResult.Success) {
+                            InteractionResult.Success success3 = (InteractionResult.Success) interactionResult3;
+                            if (success3.swingSource() == InteractionResult.SwingSource.CLIENT) {
+                                thisMinecraft.player.swing(interactionHand);
+                            }
+
+                            thisMinecraft.gameRenderer.itemInHandRenderer.itemUsed(interactionHand);
+                            return;
+                        }
+                    }
                 }
             }
         }
-
-    }
-}
     }
 
 }
