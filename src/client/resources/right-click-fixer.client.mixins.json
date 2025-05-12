@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "eva.rclickfix.mixin.client",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ReClickifyMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
