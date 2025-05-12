@@ -1,0 +1,1 @@
+Allows the offhand to 'use' items even when the main hand normally _should_ be able to but can't, such as when attempting to place a torch in an entity-occupied space from your offhand while holding a colliding block in your main hand.
