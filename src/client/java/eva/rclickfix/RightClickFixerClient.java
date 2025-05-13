@@ -12,6 +12,8 @@ public class RightClickFixerClient implements ClientModInitializer {
         // This entrypoint is suitable for setting up client-specific logic, such as rendering.
         LOGGER.info("Hoi! im eva");
 
-        LOGGER.info("imma do a fish\n\n\n\n\nblub blub");
+        LOGGER.info("imma do a fish");
+
+        LOGGER.info("blub blub");
     }
 }
