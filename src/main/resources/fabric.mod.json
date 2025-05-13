@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "right-click-fixer",
-  "version": "0.5",
+  "version": "b1.0",
   "name": "Right Click Fixer",
   "description": "Fixes hand priority drops when mainhand fails",
   "authors": [
@@ -16,14 +16,12 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "eva.rclickfix.RightClickFixer"
     ],
     "client": [
       "eva.rclickfix.RightClickFixerClient"
     ]
   },
   "mixins": [
-    "right-click-fixer.mixins.json",
     {
       "config": "right-click-fixer.client.mixins.json",
       "environment": "client"
@@ -35,7 +33,6 @@
     "java": ">=21",
     "fabric-api": "*"
   },
-  "suggests": {
-  },
-  "accessWidener": "rclickfix.accesswidener"
+  "suggests": {}
+
 }
