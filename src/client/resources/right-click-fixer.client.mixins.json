@@ -3,7 +3,7 @@
   "package": "eva.rclickfix.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "ReClickifyMixin"
+    "ReClickiMixin"
   ],
   "injectors": {
     "defaultRequire": 1
