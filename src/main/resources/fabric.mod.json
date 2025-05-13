@@ -1,15 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "right-click-fixer",
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  "version": "0w0",
-=======
   "version": "b1.0",
->>>>>>> Stashed changes
-=======
-  "version": "b1.0",
->>>>>>> Stashed changes
   "name": "Right Click Fixer",
   "description": "Fixes hand priority drops when mainhand fails",
   "authors": [
@@ -37,21 +29,10 @@
   ],
   "depends": {
     "fabricloader": ">=0.16.14",
-    "minecraft": ">=1.21.4",
+    "minecraft": "^1.21.5",
     "java": ">=21",
     "fabric-api": "*"
   },
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  "suggests": {},
-  "accessWidener": "rclickfix.accesswidener"
-=======
-  "suggests": {
-  }
->>>>>>> Stashed changes
+  "suggests": {}
+
 }
-=======
-  "suggests": {
-  }
-}
->>>>>>> Stashed changes
