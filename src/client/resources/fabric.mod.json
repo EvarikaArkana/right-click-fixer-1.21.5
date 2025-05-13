@@ -3,13 +3,13 @@
   "id": "right-click-fixer",
   "version": "b1.0",
   "name": "Right Click Fixer",
-  "description": "Fixes hand priority drops when mainhand fails",
+  "description": "Fixes hand priority drops when main hand fails, allowing offhand item use after a contextually-relevant main hand item use fails.",
   "authors": [
     "Evarika"
   ],
   "contact": {
-    "homepage": "",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://modrinth.com/mod/right-click-fixer",
+    "sources": "https://github.com/EvarikaArkana/right-click-fixer"
   },
   "license": "CC0-1.0",
   "icon": "assets/right-click-fixer/icon.png",
