@@ -2,7 +2,11 @@
   "schemaVersion": 1,
   "id": "right-click-fixer",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   "version": "0w0",
+=======
+  "version": "b1.0",
+>>>>>>> Stashed changes
 =======
   "version": "b1.0",
 >>>>>>> Stashed changes
@@ -38,8 +42,13 @@
     "fabric-api": "*"
   },
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   "suggests": {},
   "accessWidener": "rclickfix.accesswidener"
+=======
+  "suggests": {
+  }
+>>>>>>> Stashed changes
 }
 =======
   "suggests": {
