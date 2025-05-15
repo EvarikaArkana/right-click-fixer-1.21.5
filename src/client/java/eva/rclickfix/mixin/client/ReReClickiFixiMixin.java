@@ -2,9 +2,8 @@ package eva.rclickfix.mixin.client;
 //SLATED FOR DELETION
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.InteractionResult;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(Minecraft.class)
@@ -21,6 +20,7 @@ public class ReReClickiFixiMixin {
 
     }
 
+    @Unique
     private static boolean no() {return false;}
 
 }
