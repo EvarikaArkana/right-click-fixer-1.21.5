@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "right-click-fixer",
-  "version": "{$mod_version}",
+  "version": "b1.2.1+1.21.5",
   "name": "Right Click Fixer",
   "description": "Fixes hand priority drops when main hand fails, allowing offhand item use after a contextually-relevant main hand item use fails.",
   "authors": [
@@ -28,8 +28,8 @@
     }
   ],
   "depends": {
-    "fabricloader": ">={$loader_version}",
-    "minecraft": "~{$minecraft_version}",
+    "fabricloader": ">=0.16.14",
+    "minecraft": "~1.21.5",
     "java": ">=21",
     "fabric-api": "*"
   },
