@@ -68,14 +68,13 @@ def (decrementedVersion, pMinecraftVersion, mostRecentParchmentDate) = getParchm
 
 loom {
     splitEnvironmentSourceSets()
-
     mods {
-        "right-click-fixer" {
-            sourceSet sourceSets.main
+        "{$archives_base_name}" {
             sourceSet sourceSets.client
         }
     }
 }
+
 dependencies {
     // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
