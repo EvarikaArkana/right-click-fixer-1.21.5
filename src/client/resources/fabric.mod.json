@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "right-click-fixer",
-  "version": "b1.2.2+1.21.5",
+  "version": "1.2.3+1.21.5",
   "name": "Right Click Fixer",
   "description": "Fixes hand priority drops when main hand fails, allowing offhand item use after a contextually-relevant main hand item use fails.",
   "authors": [
