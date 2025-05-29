@@ -4,12 +4,10 @@ package eva.rclickfix.mixin.client;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionResult;
-import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(Minecraft.class)
-@Debug(export = true)
 public class ClickiReMixin {
 
     @ModifyExpressionValue(method = "startUseItem",
