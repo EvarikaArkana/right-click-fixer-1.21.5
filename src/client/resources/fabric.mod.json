@@ -1,9 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "right-click-fixer",
-  "version": "1.3.1+1.21.5",
-  "name": "Right Click Fixer",
-  "description": "Fixes hand priority drops when main hand fails, allowing offhand item use after a contextually-relevant main hand item use fails.",
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+
+  "name": "${mod_name}",
+  "description": "${mod_description}",
   "authors": [
     "Evarika"
   ],
@@ -14,9 +15,8 @@
   "license": "CC0-1.0",
   "icon": "assets/right-click-fixer/icon.png",
   "environment": "*",
+
   "entrypoints": {
-    "main": [
-    ],
     "client": [
       "eva.rclickfix.RightClickFixerClient"
     ]
