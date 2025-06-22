@@ -65,16 +65,6 @@ def getParchmentWithDecrementedMC(minecraftVersion) {
 
 def (decrementedVersion, pMinecraftVersion, mostRecentParchmentDate) = getParchmentWithDecrementedMC(project.minecraft_version)
 
-
-loom {
-    splitEnvironmentSourceSets()
-    mods {
-        "{$archives_base_name}" {
-            sourceSet sourceSets.client
-        }
-    }
-}
-
 dependencies {
     // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"

@@ -12,9 +12,9 @@
     "homepage": "https://modrinth.com/mod/right-click-fixer",
     "sources": "https://github.com/EvarikaArkana/right-click-fixer"
   },
-  "license": "CC0-1.0",
+  "license": "${mod_license}",
   "icon": "assets/right-click-fixer/icon.png",
-  "environment": "*",
+  "environment": "client",
 
   "entrypoints": {
     "client": [
