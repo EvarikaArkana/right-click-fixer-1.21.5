@@ -1,6 +1,5 @@
 package eva.rclickfix.mixin.client;
 
-
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionResult;
@@ -19,4 +18,5 @@ public class ClickiReMixin {
         }
         return original;
     }
+
 }
