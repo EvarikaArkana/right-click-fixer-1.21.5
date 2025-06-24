@@ -86,7 +86,7 @@ def getParchmentWithDecrementedMC(minecraftVersion) {
     def (major, minor, patch) = versionParts.collect {it as Integer}
     def decrementedVersion = patch < 1 ? "$major.${minor - 1}.99" : "$major.$minor.${patch - 1}"
 
-    while (!releases["$major.$minor.$patch"]) {
+    while (!releases["$major.$minor.$patch"] && !(patch == 0 && releases["$major.$minor"])) {
         if (patch > 0) {
             patch--
         } else {
@@ -95,7 +95,7 @@ def getParchmentWithDecrementedMC(minecraftVersion) {
             patch = 7
         }
     }
-    def foundVersion = "$major.$minor.$patch"
+    def foundVersion = patch == 0 && releases["$major.$minor"] ? "$major.$minor" : "$major.$minor.$patch"
     if (releases[foundVersion]) {
         def parchmentDate = releases[foundVersion]
         logger.print("Parchment: " + foundVersion + " + " + parchmentDate as String + "\n")
