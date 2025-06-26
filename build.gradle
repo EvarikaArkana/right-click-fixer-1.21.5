@@ -92,7 +92,7 @@ def getParchmentWithDecrementedMC(minecraftVersion) {
         } else {
             if (minor == 0) break
             minor--
-            patch = 7
+            patch = 99
         }
     }
     def foundVersion = patch == 0 && releases["$major.$minor"] ? "$major.$minor" : "$major.$minor.$patch"
