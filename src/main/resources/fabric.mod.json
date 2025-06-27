@@ -34,10 +34,20 @@
     "fabric-api": "*"
   },
   "suggests": {
-    "GenshinThirdPerson": "*"
   },
   "breaks": {
     "BetterThirdPerson": "*"
+  },
+  "custom": {
+    "mc-publish": {
+      "modrinth": "Q3aGKBEg",
+      "curseforge": 1266340,
+      "dependencies": [
+        "simply-dual-wielding(recommended){modrinth:simply-dual-wielding}",
+        "sdw(recommended){curseforge:simply-dual-wielding}",
+        "better-third-person(incompatible){modrinth:better-third-person}",
+        "betterthirdperson(incompatible){curseforge:better-third-person}"
+      ]
+    }
   }
-
 }
