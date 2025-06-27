@@ -37,7 +37,7 @@
     "simply-dual-wielding": "*"
   },
   "breaks": {
-    "BetterThirdPerson": "*"
+    "betterthirdperson": "*"
   },
   "custom": {
     "mc-publish": {
